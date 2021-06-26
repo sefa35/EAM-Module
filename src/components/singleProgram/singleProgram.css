@@ -1,0 +1,64 @@
+.singleProgram{
+    flex: 9;
+}
+
+.singleProgramWrapper{
+    padding: 20px;
+    padding-right: 20px;
+}
+
+.singleProgramImg{
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.singleProgramTitle{
+    text-align: center;
+    margin: 10px;
+    font-family: 'Lora', serif;
+    font-size: 28px;
+}
+
+.singleProgramEdit{
+    float: right;
+    font-size: 16px;
+}
+
+.singeProgramIcon{
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.singeProgramIcon:first-child{
+  color: teal;
+}
+
+.singeProgramIcon:nth-child(2){
+    color: tomato;
+}
+.singeProgramIcon:last-child{
+   color: green;
+}
+
+.singleProgramInfo{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-family: 'Varela', sans-serif;
+    color: #b39656;
+}
+
+.singleProgramDesc{
+    color: #666;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.singleProgramDesc::first-letter{
+   margin-left: 20px;
+   font-size: 30px;
+   font-weight: 600;
+}
