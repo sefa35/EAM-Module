@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./topbar.css";
 
 export default function Topbar() {
-  const user = false;
+  const user = true;
   const adminUser = true;
   return (
     <div className="top">
