@@ -1,5 +1,5 @@
 import Topbar from "./components/topbar/Topbar";
-import Homepage from "./pages/homepage/Homepage";
+import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Settings from "./pages/settings/Settings";
@@ -14,16 +14,16 @@ function App() {
       <Topbar />
       <Switch>
         <Route exact path="/">
-          <Homepage />
+          <Home />
         </Route>
-        <Route path="/posts">
-          <Homepage />
+        <Route path="/programs">
+          <Home />
         </Route>
         <Route path="/register">
-          {currentUser ? <Homepage /> : <Register />}
+          {currentUser ? <Home /> : <Register />}
         </Route>
-        <Route path="/login">{currentUser ? <Homepage /> : <Login />}</Route>
-        <Route path="/post/:id">
+        <Route path="/login">{currentUser ? <Home /> : <Login />}</Route>
+        <Route path="/program/:id">
           <Single />
         </Route>
         <Route path="/create">{currentUser ? <Write /> : <Login />}</Route>

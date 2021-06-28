@@ -1,6 +1,7 @@
 import "./program.css";
 
-export default function Program() {
+export default function Program({post}) {
+  console.log("POST",post);
   return (
     <div className="program">
       <img
@@ -13,7 +14,7 @@ export default function Program() {
           <span className="programCat">Science</span>
           <span className="programCat">Fiction</span>
         </div>
-        <span className="programTitle">Lorem ipsum dolor sit amet</span>
+        <span className="programTitle">{post?.title}</span>
         <hr />
         <span className="programDate">1 Hour Ago</span>
       </div>
