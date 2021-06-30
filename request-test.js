@@ -13,8 +13,12 @@ const program = {
     'visible': true,
     'teacherId': 1
 }
+const programAssign = {
+    'userid': 1,
+    'programid':1
+}
 
-axios.get('http://localhost:4000/auth/sefa')
+axios.delete('http://localhost:4000/program/1/1')
 .then(response =>{
     console.log("Axios Response",response);
 })
@@ -22,7 +26,7 @@ axios.get('http://localhost:4000/auth/sefa')
     console.log(error);
 });
 
-// axios.post('http://localhost:3000/books',book)
+// axios.post('http://localhost:4000/program',programAssign)
 // .then(response =>{
 //     console.log(response);
 // })

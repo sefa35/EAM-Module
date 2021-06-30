@@ -11,6 +11,7 @@ export default function SingleProgram() {
   const [title, setTitle] = useState("");
   const [info, setInfo] = useState("");
   const [updateMode, setupdateMode] = useState(false);
+  const [programAssigned, setProgramAssigned] = useState(false);
 
   const { user } = useContext(Context);
   var adminUser = false;
@@ -36,6 +37,19 @@ export default function SingleProgram() {
             .then((response) => {
               console.log("Axios Response", response);
               setTeacher(response.data);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+
+          axios
+            .get("http://localhost:4000/program/" + user?.id + "/" + path)
+            .then((response) => {
+              console.log("Axios Response Porgram", response);
+              if(response.data.length >0){
+                setProgramAssigned(true);
+              }
+              
             })
             .catch((error) => {
               console.log(error);
@@ -77,7 +91,37 @@ export default function SingleProgram() {
       });
   };
 
-  console.log("PROGRAM", program);
+  const handleAddProgram = async () => {
+    axios
+      .post("http://localhost:4000/program", {
+        userid: user.id,
+        programid: path,
+      })
+      .then((response) => {
+        console.log("Added");
+        setProgramAssigned(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    <style></style>;
+  };
+
+  const handleQuitProgram = async () => {
+    axios
+      .delete("http://localhost:4000/program/" + user?.id + "/" + path)
+      .then((response) => {
+        console.log("Axios Response", response);
+        window.location.reload();
+        setProgramAssigned(false);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  console.log("PROGRAM", programAssigned);
   return (
     <div className="singleProgram">
       <div className="singleProgramWrapper">
@@ -112,9 +156,21 @@ export default function SingleProgram() {
               </div>
             )}
 
-            <div className="singleProgramEdit">
-              <i className="singeProgramIcon fas fa-plus-circle"></i>
-            </div>
+            {programAssigned ? (
+              <div className="singleProgramEdit">
+                <i
+                  className="singeProgramIcon fa-solid fa-ban"
+                  onClick={handleQuitProgram}
+                ></i>
+              </div>
+            ) : (
+              <div className="singleProgramEdit">
+                <i
+                  className="singeProgramIcon fas fa-plus-circle"
+                  onClick={handleAddProgram}
+                ></i>
+              </div>
+            )}
           </h1>
         )}
 

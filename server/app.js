@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 var teacherRouter = require('./routes/teacher');
+var programAssignRouter = require('./routes/program-assign');
 var path = require('path');
 
 
@@ -29,6 +30,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/teacher', teacherRouter);
+app.use('/program', programAssignRouter);
 app.use('/images',express.static(path.join(__dirname,"/images")));
 
 // catch 404 and forward to error handler
