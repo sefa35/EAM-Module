@@ -94,7 +94,7 @@ export default function SingleProgram() {
   const handleAddProgram = async () => {
     axios
       .post("http://localhost:4000/program", {
-        userid: user.id,
+        userid: user?.id,
         programid: path,
       })
       .then((response) => {
@@ -156,7 +156,7 @@ export default function SingleProgram() {
               </div>
             )}
 
-            {programAssigned ? (
+            {user && (programAssigned ? (
               <div className="singleProgramEdit">
                 <i
                   className="singeProgramIcon fa-solid fa-ban"
@@ -170,7 +170,7 @@ export default function SingleProgram() {
                   onClick={handleAddProgram}
                 ></i>
               </div>
-            )}
+            ))}
           </h1>
         )}
 
