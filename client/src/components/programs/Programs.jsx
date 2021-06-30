@@ -7,7 +7,7 @@ export default function Programs({ programs }) {
   return (
     <div className="programs">
       {programs.map((p) => (
-        <Program program={p} />
+        <Program post={p} />
       ))}
     </div>
   );

@@ -6,9 +6,12 @@ import Settings from "./pages/settings/Settings";
 import Single from "./pages/single/Single";
 import Write from "./pages/create/Create";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useContext } from "react";
+import {Context} from "./context/Context"
 
 function App() {
-  const currentUser = true;
+  const {user} = useContext(Context);
+  console.log("APP USER",user);
   return (
     <Router>
       <Topbar />
@@ -20,15 +23,15 @@ function App() {
           <Home />
         </Route>
         <Route path="/register">
-          {currentUser ? <Home /> : <Register />}
+          {user ? <Home /> : <Register />}
         </Route>
-        <Route path="/login">{currentUser ? <Home /> : <Login />}</Route>
+        <Route path="/login">{user ? <Home /> : <Login />}</Route>
         <Route path="/program/:id">
           <Single />
         </Route>
-        <Route path="/create">{currentUser ? <Write /> : <Login />}</Route>
+        <Route path="/create">{user ? <Write /> : <Login />}</Route>
         <Route path="/settings">
-          {currentUser ? <Settings /> : <Login />}
+          {user ? <Settings /> : <Login />}
         </Route>
       </Switch>
     </Router>

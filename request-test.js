@@ -14,7 +14,7 @@ const program = {
     'teacherId': 1
 }
 
-axios.get('http://localhost:4000/')
+axios.get('http://localhost:4000/auth/sefa')
 .then(response =>{
     console.log("Axios Response",response);
 })

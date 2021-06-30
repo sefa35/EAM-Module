@@ -12,9 +12,9 @@ class UserRepository {
         .query("insert into user set ?", user, callback);
     }
   
-    get(id,callback) {
+    get(username,callback) {
       this.pool
-      .query('select * from user where id = ?', id, callback);
+      .query('select * from user where username = ?', username, callback);
     }
   
     getAll(callback) {

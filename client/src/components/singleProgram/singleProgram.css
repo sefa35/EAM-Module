@@ -1,64 +1,101 @@
-.singleProgram{
+.singleProgram {
     flex: 9;
-}
-
-.singleProgramWrapper{
+  }
+  
+  .singleProgramWrapper {
     padding: 20px;
-    padding-right: 20px;
-}
-
-.singleProgramImg{
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .singleProgramImg {
     width: 100%;
     height: 300px;
     border-radius: 5px;
     object-fit: cover;
-}
-
-.singleProgramTitle{
+  }
+  
+  .singleProgramTitle {
     text-align: center;
     margin: 10px;
-    font-family: 'Lora', serif;
+    font-family: "Lora", serif;
     font-size: 28px;
-}
-
-.singleProgramEdit{
+  }
+  
+  .singleProgramTitleInput {
+    margin: 10px;
+    font-family: "Lora", serif;
+    font-size: 28px;
+    text-align: center;
+    border: none;
+    color: gray;
+    border-bottom: 1px solid lightgray;
+  }
+  
+  .singleProgramTitleInput:focus {
+    outline: none;
+  }
+  
+  .singleProgramEdit {
     float: right;
     font-size: 16px;
-}
-
-.singeProgramIcon{
+  }
+  
+  .singleProgramIcon {
     margin-left: 10px;
     cursor: pointer;
-}
-
+  }
+  
+ 
 .singeProgramIcon:first-child{
-  color: teal;
-}
-
-.singeProgramIcon:nth-child(2){
-    color: tomato;
-}
-.singeProgramIcon:last-child{
-   color: green;
-}
-
-.singleProgramInfo{
+    color: black;
+  }
+  
+  .singeProgramIcon:nth-child(2){
+      color: tomato;
+  }
+  
+  
+  .singleProgramInfo {
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
     font-size: 16px;
-    font-family: 'Varela', sans-serif;
+    font-family: "Varela Round", sans-serif;
     color: #b39656;
-}
-
-.singleProgramDesc{
+  }
+  
+  .singleProgramDesc {
     color: #666;
     font-size: 18px;
     line-height: 25px;
-}
-
-.singleProgramDesc::first-letter{
-   margin-left: 20px;
-   font-size: 30px;
-   font-weight: 600;
-}
+  }
+  
+  .singleProgramDesc::first-letter {
+    margin-left: 20px;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  
+  .singleProgramDescInput {
+    border: none;
+    color: #666;
+    font-size: 18px;
+    line-height: 25px;
+  }
+  
+  .singleProgramDescInput:focus {
+    outline: none;
+  }
+  .singleProgramButton {
+    width: 100px;
+    border: none;
+    background-color: teal;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-top: 20px;
+  }

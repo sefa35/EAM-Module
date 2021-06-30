@@ -1,13 +1,23 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../../context/Context";
 import "./topbar.css";
 
 export default function Topbar() {
-  const user = true;
-  const adminUser = true;
+  const { user, dispatch } = useContext(Context);
+  console.log("USER",user);
+  var adminUser = false;
+  
+  if(user?.admin===1){
+    adminUser=true;
+  }
+
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+  };
   return (
     <div className="top">
-      <div className="topLeft">
-      </div>
+      <div className="topLeft"></div>
       <div className="topCenter">
         <ul className="topList">
           <li className="topListItem">
@@ -15,12 +25,18 @@ export default function Topbar() {
               HOME
             </Link>
           </li>
-          {adminUser && <li className="topListItem">
-            <Link className="link" to="/create">
-              CREATE
-            </Link>
-          </li>}
-          {user && <li className="topListItem">LOGOUT</li>}
+          {adminUser && (
+            <li className="topListItem">
+              <Link className="link" to="/create">
+                CREATE
+              </Link>
+            </li>
+          )}
+          {user && (
+            <li className="topListItem" onClick={handleLogout}>
+              LOGOUT
+            </li>
+          )}
         </ul>
       </div>
       <div className="topRight">
@@ -28,7 +44,7 @@ export default function Topbar() {
           <Link className="link" to="/settings">
             <img
               className="topImg"
-              src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              src={user.userImg}
               alt=""
             />
           </Link>
